@@ -1,0 +1,47 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.0'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.smband'
+version = '1.0'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.kafka:spring-kafka'
+	
+	// json api 
+	implementation 'com.fasterxml.jackson.core:jackson-databind'
+	// apache commons api 
+	implementation 'org.apache.commons:commons-lang3'
+	// logback 배포분기 condition 사용.
+	implementation 'org.codehaus.janino:janino:3.1.2'
+	
+	implementation fileTree(dir: 'libs', include: ['smb-commons2-3.2.2023012901.jar'])
+	
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	//testImplementation 'org.junit.jupiter:junit-jupiter:5.7.2'
+	//testImplementation 'org.junit.platform:junit-platform-commons:1.7.2'
+	
+	testImplementation 'org.springframework.kafka:spring-kafka-test'
+	testImplementation 'org.testcontainers:kafka:1.15.3'
+	//testImplementation 'org.testcontainers:kafka:1.14.3'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

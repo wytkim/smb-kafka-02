@@ -1,0 +1,10 @@
+
+smband:
+  kafka:
+    bootstrap-servers: 127.0.0.1:9092
+    group-id: smb-group
+    auto-offset-reset: earliest
+  topics:
+    users-registrations: usersRegistrations
+    sms-send-data: sms-send-data
+
