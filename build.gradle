@@ -1,6 +1,6 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '2.7.0'
+	id 'org.springframework.boot' version '2.3.7.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
 
@@ -33,13 +33,17 @@ dependencies {
 	
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+	testCompileOnly 'org.projectlombok:lombok'
+	testAnnotationProcessor 'org.projectlombok:lombok'
+	
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	//testImplementation 'org.junit.jupiter:junit-jupiter:5.7.2'
 	//testImplementation 'org.junit.platform:junit-platform-commons:1.7.2'
 	
 	testImplementation 'org.springframework.kafka:spring-kafka-test'
-	testImplementation 'org.testcontainers:kafka:1.15.3'
-	//testImplementation 'org.testcontainers:kafka:1.14.3'
+	//testImplementation 'org.testcontainers:kafka:1.15.3'
+	testImplementation 'org.testcontainers:kafka:1.14.3'
+	testImplementation("org.scala-lang:scala-library:2.12.11")
 }
 
 tasks.named('test') {

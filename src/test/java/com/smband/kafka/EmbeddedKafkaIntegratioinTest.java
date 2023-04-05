@@ -10,14 +10,13 @@
  */
 package com.smband.kafka;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.kafka.test.context.EmbeddedKafka;
-import org.springframework.test.annotation.DirtiesContext;
 //import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.TestPropertySource;
 
@@ -34,7 +33,7 @@ import com.smband.kafka.producer.KafkaProducer;
  * @since 
  */
 @SpringBootTest
-@DirtiesContext
+//@DirtiesContext
 @EmbeddedKafka(partitions = 1, brokerProperties = {
 		"listeners=PLAINTEXT://localhost:9093", "port=9093"
 })
